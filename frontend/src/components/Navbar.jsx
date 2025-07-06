@@ -8,7 +8,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="flex items-center justify-between py-5 font-medium">
+    <div className="flex items-center justify-between py-5 font-medium w-full px-4 sm:px-20">
       <div classname="flex-items-center justify-between px-20 ">
       {/* Logo */}
       <Link to="/">
@@ -33,9 +33,9 @@ const Navbar = () => {
 
 
   <div className="absolute hidden group-hover:flex flex-col gap-2 w-screen py-3 px-5 bg-slate-100 text-gray-500 rounded top-full left-0 -translate-x-1/2 z-50">
-    <p className="cursor-pointer hover:text-black text-center">Lavender Oil</p>
-    <p className="cursor-pointer hover:text-black text-center">Lavender Home Products</p>
-    <p className="cursor-pointer hover:text-black text-center">Lavender Soaps</p>
+    <NavLink to='/ProductOil'><p className="cursor-pointer hover:text-black text-center" >Lavender Oil</p></NavLink>
+   <NavLink to='/ProductFacewash'><p className="cursor-pointer hover:text-black text-center">Lavender Home Products</p></NavLink>
+ <NavLink to='/ProductOil'>   <p className="cursor-pointer hover:text-black text-center">Lavender Soaps</p></NavLink>
   </div>
 </li>
 
@@ -139,7 +139,7 @@ const Navbar = () => {
         {/* Profile Icon */}
         <div className="relative group">
           <Link to={'/login'}><img className="w-5 cursor-pointer" src={assets.profile_icon} alt="Profile" /></Link>
-          <div className="hidden group-hover:block absolute dropdown-menu right-0 pt-4">
+          <div className="hidden group-hover:block hover:z-20 absolute dropdown-menu right-0 pt-4">
             <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
               <p className="cursor-pointer hover:text-black text-center">My Profile</p>
               <p className="cursor-pointer hover:text-black text-center">Orders</p>
@@ -166,12 +166,9 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar Menu for Small Screens */}
-      <div
-        className={`absolute top-0 bottom-0 right-0 bg-white transition-all overflow-hidden ${
-          visible ? 'w-full' : 'w-0'
-        }`}
-      >
-        <div className="flex flex-col text-gray-600">
+      <div className={`fixed top-0 bottom-0 left-0 right-0 bg-white z-50 transition-all ${visible ? 'w-full' : 'w-0 overflow-hidden'}`}>
+
+        <div className="flex flex-col h-100 text-gray-600">
           <div onClick={() => setVisible(false)} className="flex items-center gap-4 p-3 cursor-pointer">
             <img className="h-4 rotate-180" src={assets.dropdown_icon} alt="Back" />
             <p>Back</p>

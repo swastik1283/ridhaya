@@ -8,9 +8,7 @@ const Marque = () => {
               Flat 15% off on all order above ₹1499   &nbsp;&nbsp;|&nbsp;&nbsp;
                Flat 15% off on all order above ₹1499  &nbsp;&nbsp;|&nbsp;&nbsp;
                 Flat 15% off on all order above ₹1499   &nbsp;&nbsp;|&nbsp;&nbsp; 
-              Flat 15% off on all order above ₹1499   &nbsp;&nbsp;|&nbsp;&nbsp;
-               Flat 15% off on all order above ₹1499  &nbsp;&nbsp;|&nbsp;&nbsp; 
-               Flat 15% off on all order above ₹1499   &nbsp;&nbsp;|&nbsp;&nbsp; 
+              
               Flat 15% off on all order above ₹1499   &nbsp;&nbsp;|&nbsp;&nbsp;
                Flat 15% off on all order above ₹1499  &nbsp;&nbsp;|&nbsp;&nbsp;
         </div>
