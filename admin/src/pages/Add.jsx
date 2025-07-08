@@ -27,7 +27,7 @@ const Add = ({token}) => {
      formData.append("price",price)
    formData.append("category",category)
    formData.append("Subcategory",subcategory)
-     formData.append("bestseller",bestseller)
+     formData.append("bestSeller",bestseller ? "true" : "false")
      
       image1 && formData.append("image1",image1)
       image2 && formData.append("image2",image2)
@@ -43,6 +43,7 @@ const Add = ({token}) => {
         setimage1(false)
         setimage2(false)
         setimage3(false)
+        setbestseller(false)
         
       }
       else{
@@ -111,7 +112,13 @@ const Add = ({token}) => {
       </div>
 
       <div className='flex gap-2 mt-2'>
-        <input onChange={()=>setbestseller(prev=>!prev)} checked={bestseller} type="checkbox" id='bestseller' />
+<input
+  type="checkbox"
+  id="bestseller"
+  checked={bestseller}
+  onChange={(e) => setbestseller(e.target.checked)}
+/>
+
         <label className='cursor-pointer' htmlFor='bestseller'>Add to BestSeller</label>
       </div>
 

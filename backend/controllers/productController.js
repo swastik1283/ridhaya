@@ -22,7 +22,7 @@ const addproduct=async(req,res)=>{
          
         const productData={
             name,description,category,Subcategory,price:Number(price),
-            bestSeller:bestSeller ==="true"?true:false,image:imagesUrl,date:Date.now()
+           bestSeller: bestSeller === "true" ? true : false,image:imagesUrl,date:Date.now()
         }
         console.log(productData)
 
