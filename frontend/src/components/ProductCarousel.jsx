@@ -31,7 +31,7 @@ const ProductCarousel = () => {
        <div className='mt-5'>
       <div className=' flex justify-between text-3xl text-black '>
         <div className='text-center w-full'>
-        Our Products
+        Our Range of  Products
         </div>
       </div>
     <div className='max-w-5xl mx-auto px-2'>
