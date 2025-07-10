@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import { Routes, Route } from 'react-router-dom';
 import Add from './pages/Add';
+import AddPage from './pages/Addpage';
 import List from './pages/List';
 import Orders from './pages/Orders';
 import Login from './components/Login';
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path="/add" element={<Add token ={token}/>} />
                 <Route path="/list" element={<List token={token}/>} />
                 <Route path="/orders" element={<Orders token={token}/>} />
+                <Route path="/page/add" element={<AddPage token={token}/>}/>
                 {/* No auto-redirect from "/" */}
               </Routes>
             </div>
