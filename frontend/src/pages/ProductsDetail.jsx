@@ -1,10 +1,25 @@
 import React from 'react';
 import { products } from '../assets/products';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const ProductsDetail = () => {
   const { id } = useParams();
-  const product = products.find(p => p.id === parseInt(id));
+   const navigate = useNavigate();
+  const[product,setProducts]=useState(null);
+ useEffect(()=>{
+  const fetchProduct=async()=>{
+  try{  const res=await axios.get(`http://localhost:4000/api/product/${id}`);
+     setProducts(res.data);
+  
+    } catch(err){
+      console.log('failed to fetch product:',err);
+    }
+  };
+  fetchProduct();
+},[id]);
 
   if (!product) {
     return <div className="p-6 text-red-500 text-center text-xl">❌ No product found</div>;
