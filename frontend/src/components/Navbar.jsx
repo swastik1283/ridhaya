@@ -1,15 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import { useState, useContext } from 'react';
+import { ShopContext } from '../context/ShopContext';
 
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-
-
+  const {getCartCount,cartItems,showSearch,setShowSearch}=useContext(ShopContext)
+ console.log("Cart Items:", cartItems);
   return (
     <div className="flex items-center justify-between py-5 font-medium w-full px-4 sm:px-20">
-      <div classname="flex-items-center justify-between px-20 ">
+      <div className="flex-items-center justify-between px-20 ">
       {/* Logo */}
       <Link to="/">
         <img src={assets.logo} className="w-36" alt="Logo" />
@@ -24,42 +25,22 @@ const Navbar = () => {
   >
     {/* Align text + arrow in a single horizontal row */}
     <div className="flex items-center gap-1">
-      <span className="text-sm">Best Seller</span>
-      <span className="text-sm transition-transform duration-300 group-hover:rotate-180">˅</span>
+      <NavLink to = '/Bestseller'><span className="text-sm cursor-pointer hover:text-black text-center">Best Seller</span>
+     </NavLink>
     </div>
 
     <hr className="w-2/4 border-none h-[1.5px] bg-gray-700" />
   </NavLink>
 
 
-  <div className="absolute hidden group-hover:flex flex-col gap-2 w-screen py-3 px-5 bg-slate-100 text-gray-500 rounded top-full left-0 -translate-x-1/2 z-50">
+  {/* <div className="absolute hidden group-hover:flex flex-col gap-2 w-screen py-3 px-5 bg-slate-100 text-gray-500 rounded top-full left-0 -translate-x-1/2 z-50">
     <NavLink to='/ProductOil'><p className="cursor-pointer hover:text-black text-center" >Lavender Oil</p></NavLink>
    <NavLink to='/ProductFacewash'><p className="cursor-pointer hover:text-black text-center">Lavender Home Products</p></NavLink>
  <NavLink to='/ProductOil'>   <p className="cursor-pointer hover:text-black text-center">Lavender Soaps</p></NavLink>
-  </div>
+  </div> */}
 </li>
 
-          <li className="relative group cursor-pointer">
-  <NavLink
-    to="/"
-    className="flex flex-col items-center gap-1 text-gray-700"
-  >
-    {/* Align text + arrow in a single horizontal row */}
-    <div className="flex items-center gap-1">
-      <span className="text-sm">Health</span>
-      <span className="text-sm transition-transform duration-300 group-hover:rotate-180">˅</span>
-    </div>
 
-    <hr className="w-2/4 border-none h-[1.5px] bg-gray-700" />
-  </NavLink>
-
-
-  <div className="absolute hidden group-hover:flex flex-col gap-2 w-screen py-3 px-5 bg-slate-100 text-gray-500 rounded top-full left-0 -translate-x-1/2 z-50">
-    <p className="cursor-pointer hover:text-black text-center">Health1</p>
-    <p className="cursor-pointer hover:text-black text-center">Health2</p>
-    <p className="cursor-pointer hover:text-black text-center">Health3 </p>
-  </div>
-</li>
           <li className="relative group cursor-pointer">
   <NavLink
     to="/"
@@ -76,17 +57,17 @@ const Navbar = () => {
 
 
   <div className="absolute hidden group-hover:flex flex-col gap-2 w-screen py-3 px-5 bg-slate-100 text-gray-500 rounded top-full left-0 -translate-x-1/2 z-50">
-    <p className="cursor-pointer hover:text-black text-center">Men</p>
-    <p className="cursor-pointer hover:text-black text-center">Women</p>
-    <p className="cursor-pointer hover:text-black text-center">children</p>
+   <NavLink to ="/Men"> <p className="cursor-pointer hover:text-black text-center">Men</p></NavLink>
+   <NavLink to ="/Women"> <p className="cursor-pointer hover:text-black text-center">Women</p></NavLink>
+   
   </div>
 </li>
-        <li className="relative group cursor-pointer">
+        {/* <li className="relative group cursor-pointer">
   <NavLink
     to="/"
     className="flex flex-col items-center gap-1 text-gray-700"
   >
-    {/* Align text + arrow in a single horizontal row */}
+    {/* Align text + arrow in a single horizontal row *
     <div className="flex items-center gap-1">
       <span className="text-sm">Gifting</span>
       <span className="text-sm transition-transform duration-300 group-hover:rotate-180">˅</span>
@@ -101,7 +82,7 @@ const Navbar = () => {
     <p className="cursor-pointer hover:text-black text-center">Anniversary</p>
     <p className="cursor-pointer hover:text-black text-center">Special Moments</p>
   </div>
-</li>
+</li> */}
 
   <li className="relative group cursor-pointer">
   <NavLink
@@ -152,8 +133,11 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="Cart" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-         0
+{getCartCount()}
+
           </p>
+         
+
         </Link>
 
         {/* Mobile Menu Icon */}
