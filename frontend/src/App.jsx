@@ -12,6 +12,7 @@ import ProductFacewash from './components/ProductFacewash'
 import Men from './pages/Men'
 import Women from './pages/Women'
 import Bestseller from './pages/Bestseller'
+import Cart from './pages/Cart'
 const App = () => {
   return (
     <div> 
@@ -28,6 +29,7 @@ const App = () => {
   <Route path='/Bestseller' element={<Bestseller/>}/>  
   <Route path="/Men" element={<Men/>} />
   <Route path="/Women" element={<Women/>}/>
+  <Route path="/cart" element={<Cart/>}/>
    </Routes>
       <Footer/>
     </div>
