@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { products } from '../assets/products';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
+
+import { ShopContext } from '../context/ShopContext';
 const ProductsDetail = () => {
   const { id } = useParams();
+  const {addToCart,currency}=useContext(ShopContext)
+  console.log("URL ID:", id);
    const navigate = useNavigate();
   const[product,setProducts]=useState(null);
+
  useEffect(()=>{
   const fetchProduct=async()=>{
   try{  const res=await axios.get(`http://localhost:4000/api/product/${id}`);
-     setProducts(res.data);
+     setProducts(res.data.product);
   
     } catch(err){
       console.log('failed to fetch product:',err);
@@ -32,14 +37,14 @@ const ProductsDetail = () => {
         <div className="w-full md:w-1/2">
           <img
             src={product.image}
-            alt={product.title}
+            alt={product.name}
             className="w-full h-auto object-cover rounded-lg shadow"
           />
         </div>
 
         {/* Product Info */}
         <div className="flex-1">
-          <h1 className="text-3xl font-bold mb-3">{product.title}</h1>
+          <h1 className="text-3xl font-bold mb-3">{product.name}</h1>
 
           {/* Star Rating (static) */}
           <div className="flex items-center gap-1 mb-3">
@@ -48,13 +53,13 @@ const ProductsDetail = () => {
           </div>
 
           {/* Price */}
-          <p className="text-2xl text-green-600 font-semibold mb-4">{product.price}</p>
+          <p className="text-2xl text-green-600 font-semibold mb-4">{currency.currency}{product.price}</p>
 
           {/* Description */}
           <p className="text-gray-700 mb-6">{product.description}</p>
 
           {/* Add to Cart Button */}
-          <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800" onClick={()=>useNavigate('/Cart')}>
+          <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800" onClick={()=>addToCart(product._id)}>
             Add to Cart
           </button>
 
