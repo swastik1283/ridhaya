@@ -12,11 +12,7 @@ const BestSeller = () => {
 
   if (!products || products.length === 0) return null;
 
- 
 const bestSellers = products.filter(product => product.bestSeller);
-
-
-
   return (
     <div className="py-16 bg-gradient-to-b from-white to-gray-100">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
