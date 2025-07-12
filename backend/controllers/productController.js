@@ -55,13 +55,16 @@ try {
 
 const singleProduct=async(req,res)=>{
 try {
-    const {productId}=req.body
-    const product=await productModel.findById(productId)
-    res.json({success:true,product})
+    const {id}=req.params
+    const product=await productModel.findById(id)
+    if(!product){
+    return res.status(400).json({success:false,message:"no product found"});
+ }
+        res.json({success:true,product})
 
 } catch (error) {
     console.log(error)
-    res.json({success:false,message:error.message})
+      res.status(500).json({ success: false, message: error.message });
 }
 }
 
@@ -70,7 +73,7 @@ try {
 const removeProduct = async (req, res) => {
   try {
     console.log("Request Body:", req.body); // <== Debug line
-    const { id } = req.body;
+    const { id } = req.body; 
 
     if (!id) {
       return res.status(400).json({ success: false, message: "Product ID is required" });
