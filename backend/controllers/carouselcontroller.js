@@ -4,9 +4,10 @@ import CarouselModel from '../models/CarouselModel.js'
 
 const addcarousel=async(req,res)=>{
     try{
-        const carimage1=req.file.carimage1 && req.file.carimage1[0]
-        const carimage2=req.file.carimage2 && req.file.carimage2[0]
-        const carimage3=req.file.carimage3 && req.file.carimage3[0]
+      const carimage1 = req.files.image1 && req.files.image1[0];
+const carimage2 = req.files.image2 && req.files.image2[0];
+const carimage3 = req.files.image3 && req.files.image3[0];
+    
        
 
 
@@ -14,7 +15,7 @@ const addcarousel=async(req,res)=>{
 
          let carimagesUrl=await Promise.all(
                     carimage.map(async(item)=>{
-                         let result=await cloudinary.uploader.upload(item.path,{resource_type:'carimage'});
+                         let result=await cloudinary.uploader.upload(item.path,{resource_type:'image'});
                           return result.secure_url
                           }))
 
@@ -27,7 +28,7 @@ const addcarousel=async(req,res)=>{
             await  carimageRidaya.save()
             res.json({success:true,message:"Carousel Added"})
     }
-    catch{
+    catch(error){
         res.json({success:false,message:error.message})
      console.log("error in adding",error)
     }
@@ -62,7 +63,7 @@ const removeCarousel = async (req, res) => {
     res.json({ success: true, message: "Carousel deleted successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
