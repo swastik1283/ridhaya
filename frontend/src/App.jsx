@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
 import Home from './pages/Home'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import ProductsDetail from './pages/ProductsDetail'
 import About from './pages/About'
 import Footer from './components/Footer'
@@ -9,6 +9,9 @@ import Marque from './components/Marque'
 import Login from './pages/Login'
 import ProductOil from './components/ProductOil'
 import ProductFacewash from './components/ProductFacewash'
+import Men from './pages/Men'
+import Women from './pages/Women'
+import Bestseller from './pages/Bestseller'
 const App = () => {
   return (
     <div> 
@@ -22,7 +25,10 @@ const App = () => {
 <Route path='/Login' element={<Login/>}/>
 <Route path='/ProductOil' element={<ProductOil/>}/>
 <Route path='/ProductFacewash' element={<ProductFacewash/>}/>
-      </Routes>
+  <Route path='/Bestseller' element={<Bestseller/>}/>  
+  <Route path="/Men" element={<Men/>} />
+  <Route path="/Women" element={<Women/>}/>
+   </Routes>
       <Footer/>
     </div>
   )
