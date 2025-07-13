@@ -15,7 +15,7 @@ const Hero = () => {
       console.log("Full response:", res.data); 
       if (res.data.success) {
         const imagesUrls = res.data.carimageRidaya.flatMap(item => item.carimage);
-        console.log("Extracted URLs:", imagesUrls); // 🔍 ADD THIS
+        console.log("Extracted URLs:", imagesUrls); 
         setImages(imagesUrls);
       }
     })
