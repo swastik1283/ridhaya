@@ -7,7 +7,8 @@ const productRouter=express.Router();
 productRouter.post('/add',adminauth,upload.fields([{name:'image1',maxCount:1},{name:'image2',maxCount:1},{name:'image3',maxCount:1}]),addproduct)
 productRouter.get('/list',listProduct)
 productRouter.post('/remove',removeProduct)
-productRouter.post('/single',singleProduct)
+productRouter.get('/:id',singleProduct)
+
 
 
 export default productRouter
