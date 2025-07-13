@@ -12,9 +12,9 @@ const CarouselAdd = ({token}) => {
      e.preventDefault();
      try{
      const formData=new FormData()
-    carimage1 && formData.append("carimage1",carimage1)
-      carimage2 && formData.append("carimage2",carimage2)
-      carimage3 && formData.append("carimage3",carimage3)
+    carimage1 && formData.append("image1",carimage1)
+      carimage2 && formData.append("image2",carimage2)
+      carimage3 && formData.append("image3",carimage3)
 
         const response=await axios.post(BackendUrl+"/api/Carousel/add",formData,{headers:{token}})
             if(response.data.success){
