@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+
 import Hero from '../components/Hero'
 import ProductCarousel from '../components/ProductCarousel'
 import Collection from '../components/Collection'
