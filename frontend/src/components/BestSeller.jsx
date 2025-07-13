@@ -24,7 +24,7 @@ const bestSellers = products.filter(product => product.bestSeller);
           modules={[Autoplay]}
           loop={true}
           centeredSlides={true}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
           autoplay={{
             delay: 2000,
