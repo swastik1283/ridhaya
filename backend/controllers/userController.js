@@ -1,15 +1,11 @@
 import jwt from  'jsonwebtoken'
-
+import validator from 'validator'
+import UserModel from '../models/UserModel.js';
+import userModel from '../models/UserModel.js';
 //Route for user login
-const loginUser=async(req,res)=>{
-
+const createToken=(id)=>{
+  return jwt.sign({id},process.env.JWT_SECRET)
 }
-//route for user register
-
-const registerUser=async(req,res)=>{
- res.json({msg:"reg api working"})
-}
-//route for admin login
 
 
 const adminLogin = async (req, res) => {
@@ -36,4 +32,4 @@ const adminLogin = async (req, res) => {
     return res.status(500).json({ success: false, message: error.message });
   }
 };
-export {loginUser,registerUser,adminLogin} 
+export {adminLogin} 
