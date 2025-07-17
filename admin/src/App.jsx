@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CarouselAdd from './pages/CarouselAdd';
 import CarouselList from './pages/CarouselList';
+import AdminNavbar from './pages/AdminNavbar';
 
 export const BackendUrl = import.meta.env.VITE_BACKEND_URL;
 export const currency='₹'
@@ -40,6 +41,7 @@ const App = () => {
                 <Route path="/page/add" element={<AddPage token={token}/>}/>
                 <Route path='/Carousel/add'element={<CarouselAdd token={token}/>}/>
                 <Route path='/Carousel/list'element={<CarouselList token={token}/>}/>
+                <Route path='/navbar' element={<AdminNavbar/>}/>
                 {/* No auto-redirect from "/" */}
               </Routes>
             </div>
